@@ -8,7 +8,7 @@
     </head>
     <body>
         <nav>
-            <h1><a href="index.html">NOMBRE APELLIDO</a></h1>
+            <h1><a href="index.html">GABRIELA VALLEJOS</a></h1>
             <select onchange="location = this.value;">
                 <option value="index.html">INDEX</option>
                 <option value="integrantes.html" selected>INTEGRANTES</option>
@@ -64,7 +64,7 @@
 
                 //Lo que sigue lo saqué de https://www.clara.es/
 
-                if (valor == "Escorpio") {
+                if  (valor == "Escorpio") {
                     about =
                         "<em>Escorpio</em> es un signo astrológico apasionado e intensamente emocional, gobernado por Plutón y asociado con el elemento agua. Los nacidos bajo este signo tienden a vivir la vida con una determinación feroz, enfrentando desafíos con valentía y mostrando una lealtad inquebrantable hacia aquellos a quienes aman. Su naturaleza misteriosa y enigmática esconde profundidades emocionales, y su capacidad de transformación les permite renacer de las cenizas de las adversidades, buscando constantemente la verdad y la autenticidad en sus relaciones y experiencias.";
                 } else if (valor == "Leo") {
@@ -80,9 +80,9 @@
                 detalles.innerHTML += `<div><p>${about}</p></div>`;
 
                 datos.forEach((x) => {
-                    if (valor == x.zodiaco.modalidad) {
+                    if (valor == x.zodiaco.elemento) {
                         respuesta.innerHTML += `<article><div><img src="${x.avatar}"></div><div><p><a href="integrante.html?lista=${x.lista}">${x.nombres.split(" ")[0]} ${x.apellidos.split(" ")[0]}</a></p><p>${
-                            x.zodiaco.modalidad
+                            x.zodiaco.signo
                         }</p></div></article>`;
                     }
                 });
