@@ -28,8 +28,8 @@
             const input = document.querySelector("input[type=date]");
             const aside = document.querySelector("aside");
             const d = new Date();
-            input.setAttribute("min", `1998-01-01`);
-            input.setAttribute("max", `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${d.getDate()-1}`);
+            input.setAttribute("min", `2000-11-16`);
+            input.setAttribute("max", `2000-11-16`);
 
             function consulta() {
                 let fecha = input.value;
