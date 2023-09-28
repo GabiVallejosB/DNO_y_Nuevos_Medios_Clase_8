@@ -21,8 +21,9 @@
             <div>Marque uno:</div>
             <div><input type="radio" name="selecciona" value="todos" checked />Todos</div>
             <div><input type="radio" name="selecciona" value="Escorpio" />Escorpio</div>
-            <div><input type="radio" name="selecciona" value="Leo" />Leo</div>
-            <div><input type="radio" name="selecciona" value="Acuario" />Acuario</div>
+            <div><input type="radio" name="selecciona" value="fijo" />Fijos</div>
+            <div><input type="radio" name="selecciona" value="cardinal" />Cardinales</div>
+            <div><input type="radio" name="selecciona" value="mutable" />Mutables</div>
         </header>
         <aside></aside>
         <main></main>
@@ -62,17 +63,21 @@
                 respuesta.innerHTML = ``;
                 detalles.innerHTML = ``;
 
-                //Lo que sigue lo saqué de https://www.clara.es/
+                //Información sacada de Chat gpt
 
-                if  (valor == "Escorpio") {
+
+                if (valor == "fijo") {
+                    about =
+                        "<em>Los signos de modalidad fija incluyen Tauro, Leo, Escorpio y Acuario.</em> Estos signos se caracterizan por ser persistentes, estables y resistentes al cambio. Las personas nacidas bajo signos de modalidad fija suelen ser tercas, decididas y tienen una fuerte determinación para llevar a cabo sus objetivos. A menudo, son leales y confiables, pero a veces pueden mostrarse inflexibles o reacias a adaptarse a nuevas circunstancias.";
+                        } else if (valor == "cardinal") {
+                    about =
+                        "<em>Los signos de modalidad cardinal incluyen Aries, Cáncer, Libra y Capricornio.</em> Estos signos se caracterizan por ser líderes naturales, iniciadores y orientados a la acción. Las personas nacidas bajo signos de modalidad cardinal suelen ser dinámicas, enérgicas y tienen una fuerte motivación para comenzar proyectos y tomar la iniciativa en sus vidas. A menudo, son impulsadas por un deseo de lograr sus metas y tienen la capacidad de liderar y dirigir a otros. Sin embargo, a veces pueden ser impacientes o competitivas en exceso debido a su deseo de avanzar y liderar.";
+                } else if (valor == "mutable") {
+                    about =
+                        " <em>Los signos de modalidad mutable incluyen Géminis, Virgo, Sagitario y Piscis.</em> Estos signos se caracterizan por su adaptabilidad, versatilidad y capacidad para cambiar fácilmente según las circunstancias. Las personas nacidas bajo signos de modalidad mutable suelen ser flexibles, comunicativas y tienen una mentalidad abierta para enfrentar nuevos desafíos. A veces, pueden parecer indecisas, ya que están dispuestas a considerar diferentes opciones antes de tomar una decisión final. También son hábiles para la comunicación y la adaptación a situaciones cambiantes.";
+                } else if (valor == "Escorpio"){
                     about =
                         "<em>Escorpio</em> es un signo astrológico apasionado e intensamente emocional, gobernado por Plutón y asociado con el elemento agua. Los nacidos bajo este signo tienden a vivir la vida con una determinación feroz, enfrentando desafíos con valentía y mostrando una lealtad inquebrantable hacia aquellos a quienes aman. Su naturaleza misteriosa y enigmática esconde profundidades emocionales, y su capacidad de transformación les permite renacer de las cenizas de las adversidades, buscando constantemente la verdad y la autenticidad en sus relaciones y experiencias.";
-                } else if (valor == "Leo") {
-                    about =
-                        "<em>Leo</em> es un signo astrológico regido por el Sol y perteneciente al elemento fuego. Los leoninos son conocidos por su carisma y confianza. Son líderes naturales, creativos y apasionados. Les encanta el reconocimiento y la atención, y tienen una fuerte necesidad de brillar y destacar en todo lo que hacen. La generosidad y la lealtad son rasgos destacados en su personalidad, y su deseo de liderar puede llevarlos a buscar papeles de liderazgo en diversas áreas de la vida.";
-                } else if (valor == "Acuario"){
-                    about =
-                        "<em>Acuario</em> es un signo astrológico regido por Urano y asociado con el elemento aire. Los acuarianos son conocidos por su naturaleza vanguardista e innovadora. Son pensadores independientes y visionarios que valoran la libertad y la originalidad. Los acuarianos a menudo están interesados en causas sociales y humanitarias, y les gusta desafiar las normas establecidas. Son amigables y tienen una gran habilidad para conectar con personas de diversas procedencias. A menudo se les considera excéntricos y únicos en su enfoque de la vida.";
                 } else {
                     about = "Diseño y nuevos medios."
                 }
@@ -80,7 +85,13 @@
                 detalles.innerHTML += `<div><p>${about}</p></div>`;
 
                 datos.forEach((x) => {
-                    if (valor == x.zodiaco.elemento) {
+                    if (valor == x.zodiaco.signo) {
+                        respuesta.innerHTML += `<article><div><img src="${x.avatar}"></div><div><p><a href="integrante.html?lista=${x.lista}">${x.nombres.split(" ")[0]} ${x.apellidos.split(" ")[0]}</a></p><p>${
+                            x.zodiaco.signo
+                        }</p></div></article>`;
+                    }
+
+                    else if (valor == x.zodiaco.modalidad) {
                         respuesta.innerHTML += `<article><div><img src="${x.avatar}"></div><div><p><a href="integrante.html?lista=${x.lista}">${x.nombres.split(" ")[0]} ${x.apellidos.split(" ")[0]}</a></p><p>${
                             x.zodiaco.signo
                         }</p></div></article>`;
